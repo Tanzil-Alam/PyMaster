@@ -9,23 +9,29 @@
     <style>
         :root {
             --bg-dark: #0d0e12;
-            --card-bg: rgba(22, 24, 33, 0.85);
+
+
             --card-border: rgba(69, 132, 182, 0.25);
+
             /*Writing variables of css*/
         }
 
-        html,
         body {
             min-height: 100vh;
-            /*Fixing my web's size and color */
             width: 100vw;
             margin: 0;
             padding: 0;
+
             overflow-x: hidden;
             overflow-y: auto;
-            background-color: var(--bg-dark);
-            color: #e2e8f0;
-            font-family: 'Inter', sans-serif;
+            background-image: url('Background.jfif');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
         }
 
         .font-code {
@@ -33,21 +39,12 @@
             /*Selecting font style*/
         }
 
-        #particleCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
         .py-card {
             /*Fixing card's size*/
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             backdrop-filter: blur(16px);
+
             box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
         }
 
@@ -55,6 +52,7 @@
             /*Buttons of choices of answer*/
             transition: all 0.2s ease;
             background: rgba(30, 35, 48, 0.7);
+
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -109,15 +107,12 @@
 
 <body class="relative flex flex-col justify-between min-h-screen w-screen select-none">
 
-    <canvas id="particleCanvas"></canvas> <!--The moving particles of python-->
 
     <div class="relative z-10 flex flex-col justify-between min-h-screen w-full max-w-5xl mx-auto px-4 py-4 md:py-6">
 
         <header class="w-full flex items-center justify-between h-12 md:h-14 mb-2 md:mb-0">
             <div class="flex items-center cursor-pointer" onclick="goToStartScreen()">
                 <!--The Logo used in top left, also act as a button to go home-->
-                <img src="PyLogo.png" alt="PyMaster Logo"
-                    class="h-8 md:h-12 w-auto object-contain drop-shadow-[0_0_10px_rgba(245,184,46,0.3)]">
             </div>
 
             <div id="headerStats" class="flex items-center space-x-4 opacity-0 transition-opacity duration-300">
@@ -133,8 +128,6 @@
             <!-- Start Screen, That looks amazing also with the image -->
             <main id="startScreen" class="flex flex-col items-center justify-center text-center my-auto">
                 <div class="flex items-center justify-center mb-8 md:mb-10">
-                    <img src="PyLogo.png" alt="PyMaster Logo"
-                        class="w-auto h-auto max-w-[280px] sm:max-w-md md:max-w-lg object-contain drop-shadow-[0_0_25px_rgba(245,184,46,0.25)]">
                 </div>
 
                 <button onclick="startQuiz()"
@@ -203,9 +196,15 @@
                 </div>
             </main>
 
+
+
             <!-- Results Screen, Result screen is so simple -->
+
+
             <main id="resultsScreen" class="hidden w-full max-w-md my-auto">
                 <div class="py-card rounded-2xl p-6 text-center relative overflow-hidden">
+
+
                     <h2 class="text-2xl font-bold mb-1 text-slate-100">Quiz Completed!</h2>
                     <p id="rankTitle" class="font-code text-base text-amber-400 font-semibold mb-4">Python Master</p>
 
@@ -239,79 +238,7 @@
     </div>
 
     <script>
-        const canvas = document.getElementById('particleCanvas'); /* For particle movement*/
-        const ctx = canvas.getContext('2d'); /*2d particles*/
 
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            initParticles();
-        });
-
-        class Particle {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.x = Math.random() * width; /* Random and un-fixed movement */
-                this.y = Math.random() * height;
-                this.radius = Math.random() * 2.2 + 1;
-                this.color = Math.random() > 0.5 ? '#f5b82e' : '#4584b6';
-                this.vx = (Math.random() - 0.5) * 0.4;
-                this.vy = (Math.random() - 0.5) * 0.4;
-                this.alpha = Math.random() * 0.7 + 0.3;
-                this.glow = Math.random() > 0.3;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.save();
-                ctx.globalAlpha = this.alpha;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-
-                if (this.glow) {
-                    ctx.shadowColor = this.color;
-                    ctx.shadowBlur = 8;
-                }
-
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        let particles = [];
-        function initParticles() {
-            particles = [];
-            const count = Math.floor((width * height) / 13000);
-            for (let i = 0; i < Math.min(count, 70); i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateParticles);
-        }
-
-        initParticles();
-        animateParticles();
 
         const questionBank = [ /*The List of total Questions*/
             {
@@ -388,7 +315,7 @@
             },
             {
                 question: 'What does the `is` operator evaluate in Python?',
-                code: 'a = [1, 2]\nb = [1, 2]\nprint(a is b)',
+                code: 'a = [1, 2]\ b = [1, 2]\nprint(a is b)',
                 options: ['Value equality', 'Object identity (memory location)', 'Data type compatibility', 'Length comparison'],
                 answer: 1
             },
@@ -463,6 +390,8 @@
                 options: ['items.remove()', 'items.delete()', 'items.pop()', 'items.extract()'],
                 answer: 2
             },
+
+
             {
                 question: 'What will the set creation code output?',
                 code: 's = set([1, 2, 2, 3, 3, 3])\nprint(len(s))',
@@ -478,6 +407,7 @@
         let timeLeft = 20; /*Timer has real logic*/
         let hasAnswered = false;
 
+
         const startScreen = document.getElementById('startScreen');
         const quizScreen = document.getElementById('quizScreen');
         const resultsScreen = document.getElementById('resultsScreen');
@@ -489,12 +419,14 @@
                 .slice(0, 8);
 
             currentQuestionIndex = 0;
+
             score = 0;
 
             startScreen.classList.add('hidden');
             resultsScreen.classList.add('hidden');
             quizScreen.classList.remove('hidden');
             headerStats.classList.remove('opacity-0');
+
 
             loadQuestion();
         }
@@ -504,13 +436,18 @@
             quizScreen.classList.add('hidden');
             resultsScreen.classList.add('hidden');
             startScreen.classList.remove('hidden');
+
             headerStats.classList.add('opacity-0');
         }
 
         function loadQuestion() {
+
+
             hasAnswered = false;
             clearInterval(timer);
             timeLeft = 20;
+
+
 
             const q = currentQuestions[currentQuestionIndex];
 
@@ -539,6 +476,7 @@
 
             const optionsContainer = document.getElementById('optionsContainer');
             optionsContainer.innerHTML = '';
+
 
             q.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
