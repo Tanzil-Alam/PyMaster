@@ -5,6 +5,7 @@ A new quiz game about python, in html, css and js
 I made this game for learning python with Fun, and practice it everyday. The design theme is focused on python logo colors.
 its very simple to play, if you want to play, just type "https://tanzil-alam.github.io/PyMaster/" in your browser.
 
+
 #Key features
 
 *Colorful python theme
@@ -13,17 +14,13 @@ its very simple to play, if you want to play, just type "https://tanzil-alam.git
 
 *random questions every time.
 
-*particle moving animation.
-
 *Very smooth and cool UI
-
-*Particles Animation.
 
 *Hover animation.
 
 *Colorful effects
 
-*Blue color start button
+*Yellow color start button
 
 *Python logo
 
@@ -33,5 +30,10 @@ its very simple to play, if you want to play, just type "https://tanzil-alam.git
 
 *Easy to Play.
 
-<img width="1920" height="1080" alt="Screenshot (447)" src="https://github.com/user-attachments/assets/399e7e9d-a1e6-4964-89ae-bfd011862c75" />
+*Simple Javascript
 
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c4452189-a472-4f8e-b6f9-dc558d1e4045" />
+
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ae16d671-f4ca-40d1-8af0-5288b52b1634" />
