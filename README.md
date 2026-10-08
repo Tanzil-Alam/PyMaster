@@ -5,6 +5,14 @@ A new quiz game about python, in html, css and js
 I made this game for learning python with Fun, and practice it everyday. The design theme is focused on python logo colors.
 its very simple to play, if you want to play, just type "https://tanzil-alam.github.io/PyMaster/" in your browser.
 
+# 3 QoL Improvements,
+* Easy to play - You don't have to sign-up or do anything else to play the game. just open the link, and click START, Thats it.
+
+
+* Easy Questions - You don't have to become a Python Expert to play this, you can play it with your beginner level experience.
+
+* Live Hosted - You don't have to run any script or open any file, just open the link and start playing. And its also Open-Source, Anyone can Update it.
+
 
 #Key features
 
