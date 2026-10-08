@@ -42,5 +42,5 @@ its very simple to play, if you want to play, just type "https://tanzil-alam.git
 
 
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/81308f2a-e76f-454e-b9ef-38c49d82ef21" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/11231d7f-f218-4815-ac84-85109dbdaca9" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d10f2305-26a9-4d85-9f39-9ae3c504ceb4" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bf16e36b-ecec-4a92-ac6d-8f5376e8a5e0" />
